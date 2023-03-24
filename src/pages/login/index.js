@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import TextField from '@mui/material/TextField'
 import React from "react";
 import { useNavigate} from "react-router-dom";
@@ -24,7 +23,6 @@ function Login(){
         </div>
     
         );
-=======
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -42,7 +40,6 @@ function Login() {
       </button>
     </div>
   );
->>>>>>> main
 }
 
 export default Login;
