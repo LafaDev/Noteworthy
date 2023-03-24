@@ -1,20 +1,27 @@
+import TextField from '@mui/material/TextField'
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import Button from '@mui/material/Button'
 
-function Login() {
-  const navigate = useNavigate();
+function Login(){
+    return(
+        <div className="login-page">
+            <div className="login-box"> 
+            <div className="login-fields">
+                            <h2>Noteworthy</h2>
+            <TextField id="outlined-basic" label="E-mail" variant="outlined" />
+            <br />
+            <br />
+            <TextField id="outlined-basic" label="Password" variant="outlined" />
+            <br />
+            <br />
 
-  return (
-    <div>
-      <h1>Login</h1>
-      <button
-        type="button"
-        onClick={ () => navigate('/editor') }
-      >
-        Go to editor
-      </button>
-    </div>
-  );
-}
+            <Button variant="contained">Log in</Button>
+
+            </div>
+            </div>
+        </div>
+    
+        )};
 
 export default Login;
