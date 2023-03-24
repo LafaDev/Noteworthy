@@ -1,4 +1,6 @@
 import TextField from '@mui/material/TextField'
+import React from "react";
+import { useNavigate} from "react-router-dom";
 import Button from '@mui/material/Button'
 
 function Login(){
@@ -13,7 +15,9 @@ function Login(){
             <TextField id="outlined-basic" label="Password" variant="outlined" />
             <br />
             <br />
-            <Button variant="contained">Log in</Button>
+	    //Placeholder function, replace with a mechanism to check if the login is valid?
+            <Button variant="contained" onClick={() => navigate('./editor')}>Log in</Button>
+
             </div>
             </div>
         </div>
