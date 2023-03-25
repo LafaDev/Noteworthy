@@ -2,6 +2,11 @@
     background-color: white;
     justify-content: center;
     display: flex;
+    font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 18px;
+}
+.login-title{
+    font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 36px;
+
 }
 
 .login-box{
@@ -16,5 +21,13 @@
 }
 
 .login-fields{
-    margin-top: 100px;
+    margin-top: 0px;
+}
+.login-logo{
+    width: 200px;
+    height: 200px;
+display: flex;
+justify-content: center;
+margin-left: 230px;
+margin-top: 25px;
 }
