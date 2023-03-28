@@ -108,6 +108,7 @@ function Login() {
                         <TextField
                           id="filled-basic"
                           label="E-mail"
+                          autoFocus="true"
                           variant="standard"
                           InputLabelProps={{
                               sx: {
@@ -149,7 +150,20 @@ function Login() {
                       <TextField
                         id="outlined-basic"
                         label="Password"
+                        InputLabelProps={{
+                              sx: {
+                                fontSize: '16px',
+                                fontFamily: 'Roboto, sans-serif',
+                              },
+                            }}
+                          InputProps={{
+                            sx: {
+                              fontSize: '16px',
+                              fontFamily: 'Roboto, sans-serif',
+                            },
+                          }}
                         type="password"
+                        autoFocus="true"
                         variant="outlined"
                         size="small"
                         value={password}

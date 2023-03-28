@@ -8,6 +8,7 @@
   font-size: 0.5em;
 }
 
+
 .email-field-wrapper {
   margin-top: 3vh;
   margin-bottom: 3vh;
@@ -84,5 +85,17 @@ login-logo {
   border-bottom: 8px dotted #c3c1c5;
   content: '';
   flex: 1;
+}
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
 }
