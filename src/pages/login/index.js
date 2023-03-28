@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web'
 import styles from './styles.module.css'
 
@@ -28,14 +28,22 @@ function Login() {
     justifySelf: 'start',
   }
 
-  const [{ x, bg, scale }, api] = useSpring(() => ({
-    x: completed ? -300 : 0,
+  const [{ y, bg, scale }, api] = useSpring(() => ({
+    y: completed ? -100 : 0,
     scale: 1,
     ...left,
   }))
 
+  const buttonsProps = useSpring({
+    transform: completed ? 'translateY(-100%)' : 'translateY(0%)',
+    config: {
+      tension: 200,
+      friction: 20,
+    },
+  });
+
   const sliderProps = useSpring({
-    transform: completed ? 'translateX(50%)' : 'translateX(0%)',
+    transform: completed ? 'translateY(100%)' : 'translateY(0%)',
     config: {
       tension: 200,
       friction: 20,
@@ -53,7 +61,7 @@ function Login() {
   const handleButtonClick = () => {
     if (!completed) {
       api.start({
-        x: -300,
+        y: -100,
         scale: 1,
         ...right,
       })
@@ -77,7 +85,7 @@ function Login() {
   const handleBack = () => {
     if (completed) {
       api.start({
-          x: 0,
+          y: 0,
           scale: 1,
           ...right,
       })
@@ -102,7 +110,7 @@ function Login() {
               <animated.div className={styles.sliderContainer} style={sliderProps}>
                 <div className={styles.inputContainer} />
                 <animated.div className={styles.item} style={{ background: bg }}>
-                  <animated.div className={styles.fg} style={{ x, scale }}>
+                  <animated.div className={styles.fg} style={{ y, scale }}>
                     {showEmailInput ? (
                       <animated.div style={emailProps}>
                         <TextField
@@ -174,7 +182,7 @@ function Login() {
                 </animated.div>
               </animated.div>
             </div>
-            <div className='buttons-container'>
+            <animated.div className='buttons-container' style={buttonsProps}>
               {showPassInput && (
                 <Button
                   variant="contained"
@@ -203,7 +211,8 @@ function Login() {
               >
                 Continue
               </Button>
-          </div>
+          </animated.div>
+          <p>Not a user? <Link>Sign Up</Link></p>
         </div>
       </div>
     </div>
