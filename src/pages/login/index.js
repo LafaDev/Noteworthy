@@ -58,6 +58,13 @@ function Login() {
     opacity: showPassInput ? 1 : 0,
   });
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      const key = 'Enter';
+      handleContinue(key);
+    }
+  }
+
   const handleButtonClick = () => {
     if (!completed) {
       api.start({
@@ -70,7 +77,7 @@ function Login() {
   }
 
    const handleContinue = (e) => {
-    e.preventDefault();
+    if (e !== 'Enter') e.preventDefault();
 
     if (emailRegex.test(email)) {
       setShowPassInput(true);
@@ -116,7 +123,8 @@ function Login() {
                         <TextField
                           id="filled-basic"
                           label="E-mail"
-                          autoFocus="true"
+                          autoFocus="True"
+                          onKeyPress={handleKeyPress}
                           variant="standard"
                           InputLabelProps={{
                               sx: {
