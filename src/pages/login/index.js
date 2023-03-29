@@ -123,7 +123,7 @@ function Login() {
                         <TextField
                           id="filled-basic"
                           label="E-mail"
-                          autoFocus="True"
+                          autoFocus={true}
                           onKeyPress={handleKeyPress}
                           variant="standard"
                           InputLabelProps={{
@@ -179,7 +179,7 @@ function Login() {
                             },
                           }}
                         type="password"
-                        autoFocus="true"
+                        autoFocus={true}
                         variant="outlined"
                         size="small"
                         value={password}
