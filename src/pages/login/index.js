@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web'
 import styles from './styles.module.css'
+import logo from '../../images/logo3.png';
 
 function Login() {
   const [completed, setCompleted] = useState(false);
@@ -108,10 +109,12 @@ function Login() {
       <div className="login-box">
         <div className='login-box-decoration' />
         <div className="horizontal_dotted_line" />
+          <div className="login-logo">
+            <img className="logo" src={logo} alt="NoteWorthy logo"/>
+          </div>
         <div className="login-fields">
-          <div className="login-logo" />
             <div className='login-title'>
-              <p>NoteWorthy</p>
+              <p className='real-title'>NoteWorthy</p>
             </div>
             <div className="sliderUpperContainer" style={{ position: 'relative' }}>
               <animated.div className={styles.sliderContainer} style={sliderProps}>

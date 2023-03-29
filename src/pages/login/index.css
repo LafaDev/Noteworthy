@@ -10,7 +10,6 @@
 
 
 .email-field-wrapper {
-  margin-top: 3vh;
   margin-bottom: 3vh;
 }
 
@@ -28,40 +27,57 @@
   font-size: 18px;
 }
 
+.real-title {
+  -webkit-text-stroke: 1px #fff;
+  /* text-stroke: 1px #fff; */
+}
+
 .login-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 36px;
-  color: hsl(0, 0%, 57%);
-  margin-bottom: 2vh;
+  color: Black;
+  /* color: hsl(0, 0%, 57%); */
+  margin-bottom: 1vh;
 }
 
 .login-box {
   background-color: rgb(251, 251, 251);
-  width: 640px;
+  width: 440px;
   height: 670px;
   justify-content: center;
   border-radius: 34px;
-  margin-top: 50px;
+  margin-top: 2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
 .login-fields {
-  margin-top: 100px;
+  margin-top: -45%;
+  z-index: 1;
+}
+
+.logo{
+  padding: 0;
+  margin: 0;
+  width: 220px;
+  height: 450px;
 }
 
 login-logo {
-  width: 100px;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  /* width: 100px;
   height: 100px;
   display: flex;
   justify-content: center;
   margin-left: 270px;
-  margin-top: 40px;
+  margin-top: 40px; */
 }
 
 .login-box-decoration {
-  width: 640px;
+  width: 440px;
   height: 80px;
   background-color: red;
   border-top-right-radius: 34px;
@@ -73,7 +89,7 @@ login-logo {
 
 .horizontal_dotted_line {
   display: flex;
-  width: 630px;
+  width: 430px;
   border-right: 0px solid black;
   border-left: 0px solid black;
   padding: 5px;
