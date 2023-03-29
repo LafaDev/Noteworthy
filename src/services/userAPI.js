@@ -14,7 +14,7 @@ export const getNewToken = async(login) => {
     });
 
     const data = await response.json();
-    return data;
+    return { data, status: response.status } ;
   } catch (error) {
     return error.message;
   }

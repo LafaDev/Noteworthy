@@ -25,9 +25,10 @@ function Login() {
     const form = { email, password }
     const data = await getNewToken(form);
 
-    console.log(data);
-    setCookie('jwt', data);
-    setGo(true);
+    if(data.status === 200){
+      setCookie('jwt', data);
+      setGo(true);
+    }
   };
 
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -90,7 +91,7 @@ function Login() {
    }
   }
 
-   const handleContinue = (e) => {
+   const handleContinue = async (e) => {
     if (e !== 'Enter') e.preventDefault();
 
     if (!completed && emailRegex.test(email)) {
@@ -103,7 +104,7 @@ function Login() {
     }
 
     if(completed) {
-      handleLogin();
+      await handleLogin();
     };
   }
 
