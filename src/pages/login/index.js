@@ -202,6 +202,7 @@ function Login() {
                           }}
                         type="password"
                         autoFocus={true}
+                        onKeyPress={handleKeyPress}
                         variant="outlined"
                         size="small"
                         value={password}
