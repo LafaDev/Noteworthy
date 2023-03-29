@@ -1,21 +1,34 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web'
 import styles from './styles.module.css'
 import logo from '../../images/logo3.png';
+import { getNewToken } from '../../services/userAPI';
+import { useCookies } from 'react-cookie';
 
 function Login() {
   const [completed, setCompleted] = useState(false);
+  const [go, setGo] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [, setCookie] = useCookies(['jwt']);
   const [emailError, setEmailError] = useState(false);
   const [showEmailInput, setShowEmailInput] = useState(true);
   const [showPassInput, setShowPassInput] = useState(false);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  async function handleLogin() {
+    const form = { email, password }
+    const data = await getNewToken(form);
+
+    console.log(data);
+    setCookie('jwt', data);
+    setGo(true);
+  };
 
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -80,7 +93,7 @@ function Login() {
    const handleContinue = (e) => {
     if (e !== 'Enter') e.preventDefault();
 
-    if (emailRegex.test(email)) {
+    if (!completed && emailRegex.test(email)) {
       setShowPassInput(true);
       setShowEmailInput(false);
       setEmailError(false);
@@ -88,6 +101,10 @@ function Login() {
     } else {
       setEmailError(true);
     }
+
+    if(completed) {
+      handleLogin();
+    };
   }
 
   const handleBack = () => {
@@ -106,6 +123,7 @@ function Login() {
 
   return (
     <div className="login-page">
+      { go && <Navigate to="/dashboard"/> }
       <div className="login-box">
         <div className='login-box-decoration' />
         <div className="horizontal_dotted_line" />
