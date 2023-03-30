@@ -94,6 +94,10 @@ function Login() {
    const handleContinue = async (e) => {
     if (e !== 'Enter') e.preventDefault();
 
+    if(completed) {
+      await handleLogin();
+    };
+
     if (!completed && emailRegex.test(email)) {
       setShowPassInput(true);
       setShowEmailInput(false);
@@ -102,10 +106,6 @@ function Login() {
     } else {
       setEmailError(true);
     }
-
-    if(completed) {
-      await handleLogin();
-    };
   }
 
   const handleBack = () => {
